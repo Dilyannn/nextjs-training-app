@@ -5,7 +5,7 @@ import { useActionState  } from "react";
 
 import {signup } from "../actions/auth-actions";
 
-export default function AuthForm() {
+export default function AuthForm({ mode }) { // 'login' or 'signup'
   const [state, action] = useActionState(signup, {});
 
   return (
@@ -13,6 +13,7 @@ export default function AuthForm() {
       <div>
         <img src="/images/auth-icon.jpg" alt="A lock icon" />
       </div>
+      <input type="hidden" name="mode" value={mode} />
       <p>
         <label htmlFor="email">Email</label>
         <input type="email" name="email" id="email" />
@@ -32,11 +33,12 @@ export default function AuthForm() {
 
       <p>
         <button type="submit">
-          Create Account
+          {mode === "login" ? "Login" : "Create Account"}
         </button>
       </p>
       <p>
-        <Link href="/">Login with existing account.</Link>
+        {mode === "login" && <Link href="/?mode=signup">Create an account.</Link>}
+        {mode === "signup" && <Link href="/?mode=login">Login with existing account.</Link>}
       </p>
     </form>
   );

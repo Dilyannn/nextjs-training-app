@@ -1,6 +1,15 @@
+import { redirect } from 'next/navigation';
+
+import { isAuthenticated } from '@/lib/auth.js';
 import { getTrainings } from '@/lib/training';
 
 export default async function TrainingPage() {
+  const result = await isAuthenticated();
+
+  if (!result.session) {
+    return redirect("/");
+  }
+
   const trainingSessions = getTrainings();
 
   return (
