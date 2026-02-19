@@ -3,7 +3,7 @@
 import { hashUserPassword, verifyPassword } from "@/lib/hash.js";
 import { createUser, getUserByEmail } from "../lib/user";
 import { redirect } from "next/navigation";
-import { createAuthSession } from "@/lib/auth.js";
+import { createAuthSession, destroyAuthSession } from "@/lib/auth.js";
 
 export async function signup(_, formData) {
   const email = formData.get("email");
@@ -69,4 +69,9 @@ export async function auth(_, formData) {
   }
 
   return signup(_, formData);
+}
+
+export async function logout() {
+  await destroyAuthSession();
+  redirect("/");
 }
