@@ -1,8 +1,15 @@
+"use client";
+
 import Link from 'next/link';
+import { useActionState  } from "react";
+
+import {signup } from "../actions/auth-actions";
 
 export default function AuthForm() {
+  const [state, action] = useActionState(signup, {});
+
   return (
-    <form id="auth-form">
+    <form id="auth-form" action={action}>
       <div>
         <img src="/images/auth-icon.jpg" alt="A lock icon" />
       </div>
@@ -14,6 +21,15 @@ export default function AuthForm() {
         <label htmlFor="password">Password</label>
         <input type="password" name="password" id="password" />
       </p>
+
+      {state.errors && (
+        <ul id="form-errors">
+          {Object.keys(state.errors).map((error) => (
+            <li key={error}>{state.errors[error]}</li>
+          ))}
+        </ul>
+      )}
+
       <p>
         <button type="submit">
           Create Account
