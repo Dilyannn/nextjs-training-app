@@ -11,7 +11,7 @@ html {
 body {
   margin: 0;
   /* background-color: #333236; */
-  background: linear-gradient(#d4d4e2, #272629);
+  background: linear-gradient(#131313, #272629);
   color: #d0cfd6;
   min-height: 100vh;
 }
@@ -102,12 +102,30 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
   max-width: 50rem;
   margin: 2rem auto;
 }
 
 #auth-header p {
   font-size: 1.25rem;
+}
+
+#auth-nav {
+  display: flex;
+  gap: 0.75rem;
+}
+
+#auth-nav a,
+#training-actions a {
+  color: #c5b7ff;
+  text-decoration: none;
+}
+
+#auth-nav a:hover,
+#training-actions a:hover {
+  color: #efe9ff;
 }
 
 #auth-header button {
@@ -169,4 +187,86 @@ main {
 #training-sessions li p {
   margin: 1rem;
   color: #7c7a80;
+}
+
+#training-actions {
+  text-align: center;
+  margin: 0.5rem 0 1.5rem;
+}
+
+#exercise-create,
+#exercise-list,
+#exercise-search-form {
+  max-width: 42rem;
+  margin: 1rem auto 2rem;
+  padding: 1rem;
+  border-radius: 6px;
+  background: #0f0f11;
+}
+
+#exercise-create h2,
+#exercise-list h2 {
+  margin-top: 0;
+}
+
+#exercise-create label,
+#exercise-list label,
+#exercise-search-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #a4a0b1;
+  font-weight: 600;
+}
+
+#exercise-create input,
+#exercise-create textarea,
+#exercise-list input,
+#exercise-list textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+  font: inherit;
+}
+
+#exercise-search-form input,
+.exercise-selector-form select {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+  font: inherit;
+}
+
+.search-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#exercise-create button,
+#exercise-list button,
+#exercise-search-form button {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #4b34a9;
+  color: #d0cfd6;
+}
+
+#exercise-admin-list {
+  display: grid;
+  gap: 1rem;
+}
+
+#exercise-admin-list li {
+  border: 1px solid #252229;
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+.exercise-delete-form button {
+  margin-top: 0.5rem;
+  background-color: #902f53;
 }
