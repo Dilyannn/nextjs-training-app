@@ -17,15 +17,18 @@
 
 ## 📖 About The Project
 
-This project is a training application designed to explore and implement robust authentication flows in a modern Next.js environment. It features a complete user registration and login system, utilizing server actions for secure data handling and session-based authentication.
+This project is a training application designed to explore and implement robust authentication flows and data management in a modern Next.js environment. It features a complete user registration and login system, alongside a management dashboard for training exercises.
 
-Users can create an account, log in securely, and access protected routes (like the training dashboard) where they can view available training sessions.
+Users can create an account, log in securely, and access protected routes where they can view, search, and manage training sessions through a full CRUD (Create, Read, Update, Delete) interface.
 
 ## ✨ Key Features
 
 - **🔐 Secure Authentication:** Full signup and login flows with password hashing (using Node's native `crypto` module).
 - **🍪 Session Management:** Persistent user sessions managed via cookies using [Lucia Auth](https://lucia-auth.com/).
 - **⚡ Server Actions:** Leveraging Next.js Server Actions for seamless, JavaScript-free form submissions and secure server-side logic.
+- **🛠️ Exercise Management (CRUD):** Complete system to create, read, update, and delete training exercises.
+- **🔍 Advanced Search:** Functional search feature to find exercises by title or description using optimized SQL queries.
+- **♻️ On-Demand Revalidation:** Using `revalidatePath` to ensure data consistency across different views after mutations.
 - **🗄️ Local Database:** Integrated `better-sqlite3` for lightweight, fast, and reliable local data storage.
 - **🛡️ Protected Routes:** Middleware/Server-side checks to ensure only authenticated users can access specific pages.
 
@@ -33,9 +36,11 @@ Users can create an account, log in securely, and access protected routes (like 
 
 Building this project provided hands-on experience with several advanced Next.js and web development concepts:
 
-- **Next.js App Router:** Navigating the new App Router paradigm, including Server Components vs. Client Components.
+- **Next.js App Router:** Navigating the new App Router paradigm, including Server Components vs. Client Components and route groups `(auth)`.
 - **Server Actions (`"use server"`):** How to securely handle form data and database mutations directly from the server without building separate API routes.
 - **Lucia Auth v3:** Implementing a modern, session-based authentication library from scratch, including setting up the SQLite adapter.
+- **Data Revalidation:** Mastering `revalidatePath` to manually purge cached data and ensure the UI reflects the latest database state.
+- **SQL Operations:** Writing and executing prepared statements for CRUD operations and keyword-based search in SQLite.
 - **Password Security:** Understanding the importance of salting and hashing passwords using `scryptSync` and `timingSafeEqual` to prevent timing attacks.
 - **State Management in Forms:** Using React's `useActionState` to handle form submission states, loading indicators, and error messages gracefully.
 
